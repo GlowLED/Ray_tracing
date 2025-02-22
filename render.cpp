@@ -20,11 +20,11 @@
 #include "include/materials/lambertian.h"
 
 int main() {
-    int nx = 1920;
-    int ny = 1080;
+    int nx = 200;
+    int ny = 100;
     int ns = 1000;
-    int max_depth = 200;
-    float exposure = 2;
+    int max_depth = 50;
+    float exposure = 1;
     std::ofstream out("out.ppm");
 
     vec3 lookfrom(-1.5, 0.25, 2);
@@ -33,7 +33,7 @@ int main() {
 
     material *blue_light_material = new light(vec3(0.0, 0.0, 1.0));
     material *red_light_material = new light(vec3(1.0, 0.0, 0.0));
-    material *glass_material = new dielectric(1.5);
+    material *glass_material = new dielectric(vec3(0.0, 1.0, 0.0), 1.5, 0.2);
     material *metal_material = new metal(vec3(0.8, 0.8, 0.8), 0.5);
     material *red_material = new metal(vec3(0.8, 0.3, 0.3), 0.2);
     material *gray_material = new lambertian(vec3(0.5, 0.5, 0.5));

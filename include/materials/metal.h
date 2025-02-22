@@ -21,7 +21,7 @@ public:
         vec3 offset_p = rec.p + offset * rec.normal;
         if (fuzz > 0) {
             diffuse(rec.normal, diffused);
-            scattered = ray(offset_p, unit_vector(reflected) + fuzz * unit_vector(diffused));
+            scattered = ray(offset_p, (1-fuzz) * unit_vector(reflected) + fuzz * unit_vector(diffused));
         }
         else {
             scattered = ray(offset_p, reflected);
