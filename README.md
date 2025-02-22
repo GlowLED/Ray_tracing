@@ -46,7 +46,7 @@ A physically based ray tracing renderer implemented in C++. This project impleme
 
 ## Examples
 
-![Render Example](./images/example.png)
+![Render Example](./example.png)
 *A scene featuring glass sphere, metal cube, and various light sources*
 
 ## Technical Details
