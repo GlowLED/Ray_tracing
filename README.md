@@ -1,9 +1,10 @@
 # Ray Tracing Renderer
-
+---
 A physically based ray tracing renderer implemented in C++. This project implements core concepts of ray tracing including reflection, refraction, and global illumination.
 
-## Features
 
+## Features
+---
 ### Materials
 - **Dielectric** - Simulates transparent materials like glass with:
   - Fresnel reflectance (Schlick approximation)
@@ -44,13 +45,18 @@ A physically based ray tracing renderer implemented in C++. This project impleme
   - Basic sky gradient
   - Black sky for indoor scenes
 
-## Examples
 
-![Render Example](./example.png)
+## Example
+---
+
+![Render Example1](./example1.png)
 *A scene featuring glass sphere, metal cube, and various light sources*
 
-## Technical Details
+![Render Example2](./example2.png)
+*A scene featuring metal sphere, glass cube, and various light sources*
 
+## Technical Details
+---
 ### Rendering Pipeline
 1. Ray Generation
 2. Scene Intersection
@@ -65,6 +71,7 @@ A physically based ray tracing renderer implemented in C++. This project impleme
 - Exposure control
 
 ## Usage
+---
 
 ```cpp
 // Create materials
@@ -86,7 +93,7 @@ renderer.render(cam, &world, output, height, width, depth, samples, exposure);
 ```
 
 ## Build Instructions
-
+---
 ### Prerequisites
 - C++ compiler with C++11 support
 - Basic math library
@@ -104,7 +111,7 @@ convert out.ppm out.png  # Convert to PNG format
 ```
 
 ## Implementation Details
-
+---
 ### Ray-Object Intersection
 - Analytical solution for spheres
 - AABB intersection for cubes

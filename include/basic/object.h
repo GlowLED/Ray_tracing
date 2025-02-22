@@ -3,6 +3,7 @@
 
 #include "ray.h"
 #include "vec3.h"
+#include "transform.h"
 class material;
 
 struct hit_record {
@@ -18,7 +19,28 @@ struct hit_record {
 
 class object {
 public:
-    virtual bool hit(const ray &r, float t_min, float t_max, hit_record &rec) const = 0;
+    virtual bool hit_local(const ray &r, float t_min, float t_max, hit_record &rec) const = 0;
+    bool hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
+        if (trans) {
+            ray transformed_ray(
+                trans->world_to_object(r.origin),
+                trans->world_to_object(r.direction)
+            );
+            
+            if (hit_local(transformed_ray, t_min, t_max, rec)) {
+                rec.p = trans->object_to_world(rec.p);
+                rec.normal = trans->object_to_world(rec.normal);
+                return true;
+            }
+            return false;
+        }
+        return hit_local(r, t_min, t_max, rec);
+    }
+    transform *trans=nullptr;
+    bool setTransform(transform *t) {
+        trans = t;
+        return true;
+    }
 };
 
 #endif

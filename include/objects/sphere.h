@@ -4,11 +4,14 @@
 #include "../basic/vec3.h"
 #include "../basic/ray.h"
 #include "../basic/material.h"
+#include "../basic/transform.h"
+#include "../transforms/blank.h"
 class sphere : public object {
 public:
     sphere() {}
     sphere(const vec3 &c, float r, material *m) : center(c), radius(r), mat_ptr(m) {}
-    virtual bool hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
+    virtual bool hit_local(const ray &r, float t_min, float t_max, hit_record &rec) const {
+        
         vec3 oc = r.getOrigin() - center;
         float a = dot(r.getDirection(), r.getDirection());
         float b = dot(oc, r.getDirection());
@@ -37,5 +40,6 @@ public:
     vec3 center;
     float radius;
     material *mat_ptr;
+
 };
 #endif

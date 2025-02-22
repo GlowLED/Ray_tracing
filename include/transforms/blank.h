@@ -3,7 +3,10 @@
 class blank : public transform {
 public:
     blank() {}
-    vec3 apply(const vec3 &v) const {
+    virtual vec3 world_to_object(const vec3 &v) const {
+        return v;
+    }
+    virtual vec3 object_to_world(const vec3 &v) const {
         return v;
     }
 };

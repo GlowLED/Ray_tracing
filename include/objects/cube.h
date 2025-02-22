@@ -4,6 +4,8 @@
 #include "../basic/vec3.h"
 #include "../basic/ray.h"
 #include "../basic/material.h"
+#include "../basic/transform.h"
+#include "../transforms/blank.h"
 
 class cube : public object {
 public:
@@ -11,7 +13,7 @@ public:
     cube(const vec3 &p0, const vec3 &p1, material *m) : p0(p0), p1(p1), mat_ptr(m) {}
     vec3 p0, p1;
     material *mat_ptr;
-    virtual bool hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
+    virtual bool hit_local(const ray &r, float t_min, float t_max, hit_record &rec) const {
         float tmin = t_max;
         bool flag = false;
         vec3 p, normal;

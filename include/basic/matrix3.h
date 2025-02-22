@@ -16,8 +16,17 @@ public:
         e[2][2] = e22;
     }
     float e[3][3];
+    mat3 transpose() const {
+        mat3 result;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                result.e[i][j] = e[j][i];
+            }
+        }
+        return result;
+    }
 };
-matmul(const mat3 &m1, const mat3 &m2) {
+mat3 matmul(const mat3 &m1, const mat3 &m2) {
     mat3 result;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -26,7 +35,7 @@ matmul(const mat3 &m1, const mat3 &m2) {
     }
     return result;
 }
-matmul(const mat3 &m, const vec3 &v) {
+vec3 matmul(const mat3 &m, const vec3 &v) {
     vec3 result;
     for (int i = 0; i < 3; i++) {
         result[i] = m.e[i][0] * v[0] + m.e[i][1] * v[1] + m.e[i][2] * v[2];

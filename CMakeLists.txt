@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # 创建可执行文件
+add_executable(test "test.cpp")
 add_executable(render "render.cpp")
