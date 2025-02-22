@@ -9,7 +9,7 @@ public:
     lambertian(const vec3 &a) : albedo(a) {}
     virtual bool scatter(const ray &r_in, const hit_record &rec, vec3 &attenuation, ray &scattered) const {
         diffuse(rec.normal, scattered.direction);
-        const float offset = 0.0001; // 小偏移量
+        const float offset = 0.0001; 
         vec3 offset_p = rec.p + offset * rec.normal;
         scattered.origin = offset_p;
         attenuation = albedo;

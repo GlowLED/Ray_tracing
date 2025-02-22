@@ -41,16 +41,7 @@ class dielectric : public material {
             if (refract(r_in.getDirection(), outward_normal, ni_over_nt, refracted)) {
                 reflect_prob = schlick(cosine, ref_idx);
             }
-            else {/*
-                vec3 offset_p = rec.p + offset * outward_normal;
-                if (fuzz > 0) {
-                    vec3 offset_p = rec.p + offset * outward_normal;
-                    vec3 diffused;
-                    diffuse(outward_normal, diffused);
-                    scattered = ray(offset_p, (1-fuzz) * unit_vector(reflected) + fuzz * diffused);
-                }
-                scattered = ray(offset_p, reflected);
-                reflect_prob = 1.0;*/
+            else {
                 reflect_prob = 1.0;
             }
             if (drand48() < reflect_prob) {

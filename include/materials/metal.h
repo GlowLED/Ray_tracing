@@ -17,7 +17,7 @@ public:
     virtual bool scatter(const ray &r_in, const hit_record &rec, vec3 &attenuation, ray &scattered) const {
         vec3 reflected, diffused;
         reflect(unit_vector(r_in.getDirection()), rec.normal, reflected);
-        const float offset = 0.0001; // 小偏移量
+        const float offset = 0.0001;
         vec3 offset_p = rec.p + offset * rec.normal;
         if (fuzz > 0) {
             diffuse(rec.normal, diffused);
