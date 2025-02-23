@@ -22,9 +22,9 @@
 #include "include/transforms/rotate.h"
 
 int main() {
-    int nx = 400;
-    int ny = 200;
-    int ns = 600;
+    int nx = 1920;
+    int ny = 1080;
+    int ns = 500;
     int max_depth = 50;
     float exposure = 1;
     float aperture = 0.3;
@@ -32,7 +32,7 @@ int main() {
 
     vec3 lookfrom(-1.8, 0.8, 1.5);
     vec3 lookat(0, 0.05, 0.25);
-    camera cam(lookfrom, lookat, 45, float(nx) / float(ny), aperture);
+    camera cam(lookfrom, lookat, 30, float(nx) / float(ny), aperture);
 
     material *blue_light_material = new light(vec3(0.0, 0.0, 1.0));
     material *red_light_material = new light(vec3(1.0, 0.0, 0.0));
